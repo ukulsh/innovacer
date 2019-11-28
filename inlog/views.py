@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from inlog.models import Visitor
 from .models import Visitor
+from smtplib import SMTP
 
 def contact_view(request):
     # print(request.method)
@@ -11,10 +12,10 @@ def contact_view(request):
         visitor.email= request.POST.get("email")
         visitor.host = request.POST.get("message")
         visitor.save()
-        # print(visitor.name,visitor.email,visitor.host,file=sys.stderr)
-        return render(request,"index.html")
+        print(visitor.name,visitor.email,visitor.host)
+        return render(request,".html")
     else:
-        return render(request,"index2.html")
+        return render(request,"home.html")
 
 def contact_view2(request):
     # print(request.method)
@@ -23,9 +24,9 @@ def contact_view2(request):
         n = request.POST.get("name")
         Visitor.objects.get(name=n).delete()
         # print(visitor.name,visitor.email,visitor.host,file=sys.stderr)
-        return render(request,"home.html")
+        return render(request,"index2.html")
     else:
-        return render(request,"home.html")
+        return render(request,"index2.html")
 
 
 

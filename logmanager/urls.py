@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^inform/$',views.contact_view),
     url(r'^outform/$',views.contact_view2),
     url(r'^$',views.home),
+    url(r'^home/$',views.home),
     url(r'^db/$',views.chick)
 ]
 if settings.DEBUG:
