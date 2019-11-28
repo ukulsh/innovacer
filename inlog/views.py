@@ -13,7 +13,8 @@ def contact_view(request):
         visitor.host = request.POST.get("message")
         visitor.save()
         print(visitor.name,visitor.email,visitor.host)
-        return render(request,".html")
+        return render(request,"home.html")
+        content = 'example email stuff here'
     else:
         return render(request,"home.html")
 
@@ -24,11 +25,16 @@ def contact_view2(request):
         n = request.POST.get("name")
         Visitor.objects.get(name=n).delete()
         # print(visitor.name,visitor.email,visitor.host,file=sys.stderr)
-        return render(request,"index2.html")
+        return render(request,"home.html")
     else:
-        return render(request,"index2.html")
+        return render(request,"home.html")
 
 
+def index_call(request):
+    return render(request, "index.html")
+
+def index2_call(request):
+    return render(request, "index2.html")
 
 def home(request):
     return render(request, "home.html")

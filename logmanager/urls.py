@@ -28,7 +28,8 @@ urlpatterns = [
     url(r'^outform/$',views.contact_view2),
     url(r'^$',views.home),
     url(r'^home/$',views.home),
-    url(r'^db/$',views.chick)
+    url(r'^index/$',views.index_call),
+    url(r'^index2/$',views.index2_call),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
