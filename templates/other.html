@@ -5,9 +5,11 @@
     <title></title>
 </head>
 <body>
-    {% for i in context %}i{% endfor %}
+{% for i in context %}
+    {{i.email}}
+    i{% endfor %}
 
-{{all_objects}}
+
 </body>
 
 

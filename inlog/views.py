@@ -14,14 +14,34 @@ def contact_view(request):
         # print(visitor.name,visitor.email,visitor.host,file=sys.stderr)
         return render(request,"index.html")
     else:
-        return render(request,"index.html")
+        return render(request,"index2.html")
+
+def contact_view2(request):
+    # print(request.method)
+    if request.method == "POST":
+        
+        n = request.POST.get("name")
+        Visitor.objects.get(name=n).delete()
+        # print(visitor.name,visitor.email,visitor.host,file=sys.stderr)
+        return render(request,"home.html")
+    else:
+        return render(request,"home.html")
+
 
 
 def home(request):
-    return render(request, "other.html",{})
+    return render(request, "home.html")
 
 def chick(request):
-    return render(request, "datab.html",{})
+    
+    all_objects= Visitor.objects.all()
+    
+    context = {
+            'all_objects': all_objects
+        }
+    print(context)    
+    return render(request,'datab.html',context)
+    # return render(request, "datab.html")
 
 
 

@@ -24,10 +24,10 @@ from inlog import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^other/$',home),
-    url(r'^$',contact_view),
+    url(r'^inform/$',views.contact_view),
+    url(r'^outform/$',views.contact_view2),
+    url(r'^$',views.home),
     url(r'^db/$',views.chick)
-    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

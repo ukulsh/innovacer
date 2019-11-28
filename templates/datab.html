@@ -1,1 +1,11 @@
-<h1> this redirecting is working</h1>
+{% comment %} <h1> this redirecting is working</h1> {% endcomment %}
+
+<html>
+<h1>Homepage</h1>
+{% for ans in all_objects %}
+<h7>{{ans.name}} {{ans.email}} {{ans.host}}</h7>
+{% endfor %}
+<h1>What's on your mind</h1>
+
+
+</html>
