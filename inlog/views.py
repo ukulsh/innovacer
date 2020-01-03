@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from inlog.models import Visitor
 from .models import Visitor
 from smtplib import SMTP
+from twilio.rest import Client
 
 def contact_view(request):
     # print(request.method)
@@ -34,6 +35,27 @@ def contact_view(request):
         mail.sendmail('dustingdown@gmail.com',email,content)
 
         mail.close()
+
+
+        # Download the helper library from https://www.twilio.com/docs/python/install
+
+
+
+        # Your Account Sid and Auth Token from twilio.com/console
+        # DANGER! This is insecure. See http://twil.io/secure
+        # account_sid = 'AC458a3cd4e8904129335ecfb9af035468'
+        # auth_token = '95b008f46f1950d1369ce5e28c396406'
+        # client = Client(account_sid, auth_token)
+
+        # message = client.messages \
+        #                 .create(
+        #                     body=content,
+        #                     from_='+19564357088',
+        #                     to='+916350041405'
+        #                 )
+        # client.sendMessage()
+        # print(message.sid)
+
 
         # print(visitor.name,visitor.email,visitor.host)
         return render(request,"home.html")
