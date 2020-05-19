@@ -31,7 +31,7 @@ def contact_view(request):
         # password = input("Enter password:")
 
         mail.starttls()
-        mail.login('dustingdown@gmail.com','Utkarsh1@')
+        mail.login('dustingdown@gmail.com','Dustingdown@!')
         mail.sendmail('dustingdown@gmail.com',email,content)
 
         mail.close()
